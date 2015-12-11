@@ -1,0 +1,70 @@
+<html ng-app="app" ng-controller="WelcomeCtrl" >
+  <head>
+    <title>Smile On Deal</title>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+    <script type="welcome.js"></script>
+    <base href="/"></base>
+    <style>
+      .glyphicon-thumbs-up { cursor:pointer }
+      .menu {
+          position:relative;
+      }
+      .menu > .dropdown-menu {
+          position:static;
+          display:block;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="app.js"></script>
+    <div class="container" >
+      <div>
+        <div class="navbar navbar-default ">
+          <ul class="nav navbar-nav">
+            <li ng-class="{dropdown: category.sub_categories}" ng-repeat="category in categories"  ng-init="navCollapsed = true"  ng-click="navCollapsed = !navCollapsed">
+              <a href="#" data-toggle="dropdown" ng-class="{'dropdown-toggle': category.sub_categories}" ng-click="showChilds(category,$event)">{{category.name}}<span class="caret"></span></a>
+              <ul class="navCollapsed dropdown-menu main">
+                <li class="sub" id="sub_one" ng-if= "category.sub_categories" ng-repeat="subcat in category.sub_categories" >
+                  <a href="#" ng-click="showSection(subcat,$event)">{{subcat.name}}</a>
+                  <ul class="navCollapsed dropdown-menu pull-right" style="position: relative;">
+                    <li class="sub" id="sub_two" ng-repeat="section in subcat.sections" >
+                      <a ng-click="ShowProduct(section.id)" class="ng-binding" >{{section.name}}</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <ul class="navbar navbar-default products_details" style="display:none;" >
+            <li  ng-repeat="product in products"  ng-init="navCollapsed = true"  ng-click="navCollapsed = !navCollapsed">
+              <a href="#">{{product.name}}</a>
+                <ul ng-if="product.product_features" ng-repeat="feature in product.product_features">
+                  <table class= "table">
+                    <tr>
+                      <th>Color</th>
+                      <th>Size</th>
+                      <th>Weight</th>
+                      <th>Storage</th>
+                      <th>Price</th>
+                    </tr>
+                    <tr><td>{{feature.color}}</td>
+                    <td>{{feature.size}}</td>
+                    <td>{{feature.weight}}</td>
+                    <td>{{feature.storage}}</td>
+                    <td>{{feature.price}}</td>
+                  </tr>
+
+                  </table>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

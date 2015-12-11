@@ -1,0 +1,26 @@
+<html ng-app="app" ng-controller="welcomeController" >
+  <head>
+    <title>Smile On Deal</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+    <script type="welcome.js"></script>
+    <style>
+      .glyphicon-thumbs-up { cursor:pointer }
+      .menu {
+          position:relative;
+      }
+      .menu > .dropdown-menu {
+          position:static;
+          display:block;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="app.js"></script>
+    <div class="container" >
+      <div ng-view></div>
+    </div>
+  </body>
+</html>

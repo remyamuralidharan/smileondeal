@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+  <title>Smileondeal</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application', 'WelcomeCtrl' %>
+  <%= csrf_meta_tags %>
+</head>
+<body data-no-turbolink >
+<p><%= notice %></p>
+<p><%= alert %></p>
+<%= yield %>
+
+</body>
+</html>
